@@ -11,9 +11,11 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Rename anypy to main if exists
+      - name: Prepare main.py and requirements.txt
         run: |
           if [ -f anypy.py ]; then mv anypy.py main.py; fi
+          echo "flet" > requirements.txt
+          echo "requests" >> requirements.txt
 
       - name: Set up Python
         uses: actions/setup-python@v5
